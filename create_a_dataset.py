@@ -21,7 +21,7 @@ CITY = np.random.choice(city_list,5000, p=[0.3, 0.2, 0.1, 0.4])
 ############### create DataFrames ################
 list_of_tuples = list(zip(AGE, SEX, INSTRUMENT, CITY))
 
-df0 = pd.DataFrame(list_of_tuples,
+df_0 = pd.DataFrame(list_of_tuples,
                   columns = ["AGE", "SEX", "INSTRUMENT", "CITY"])
 
 ## Create a new DataFrame for PRICE variable
@@ -42,7 +42,7 @@ def price_fill(instrument_list, price_dictionary):
     for count, inst in enumerate(instrument_list):
         dict_inst[inst] = [round(num, 2) for num in
                            np.random.uniform(price_dict["price1"][count], price_dict["price2"][count],
-                                             len(df0[df0["INSTRUMENT"] == inst]))]
+                                             len(df_0[df_0["INSTRUMENT"] == inst]))]
 
         frame = pd.DataFrame({"INSTRUMENT": inst, "PRICE": dict_inst[inst]})
 
@@ -50,9 +50,9 @@ def price_fill(instrument_list, price_dictionary):
 
     return inst_price_df
 
-df1 =price_fill(inst_list,price_dict)
+df_1 =price_fill(inst_list,price_dict)
 
-df = pd.merge(df0, df1, suffixes=("_del",""), left_index=True,right_index=True)
+df = pd.merge(df_0, df_1, suffixes=("_del",""), left_index=True,right_index=True)
 
 df = df.drop("INSTRUMENT_del", axis=1)
 
