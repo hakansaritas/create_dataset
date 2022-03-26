@@ -4,7 +4,7 @@ import numpy as np
 
 def create_dataset():
     """
-    create a dataset includes AGE,SEX,INSTRUMENT,CITY,PRICE variables
+    creating a dataset includes AGE,SEX,INSTRUMENT,CITY,PRICE variables with 5000 samples.
 
     Parameters
     ----------
@@ -12,11 +12,11 @@ def create_dataset():
 
     Returns
     -------
-    df: dataframe of the dataset
+    df: dataframe of the created dataset
 
     Notes
     ------
-    This function export the dataframe to csv format into your main work place
+    This function export the dataframe to csv format into your main work directory
 
     """
 
